@@ -24,3 +24,9 @@ func Get(id int64) models.Article {
 	db.GetDb().Read(&article)
 	return article
 }
+
+func Update(article models.Article) int64 {
+	article.UpdatedAt = time.Now().UnixNano() / int64(time.Millisecond)
+	count, _ := db.GetDb().Update(&article)
+	return count
+}

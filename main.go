@@ -16,9 +16,19 @@ func main() {
 		Description: "Description 1",
 	}
 
-	x := repo.Save(article)
-	fmt.Printf("Id: %d\n", x)
+	// Insert
+	id1 := repo.Save(article)
+	fmt.Printf("Id: %d\n", id1)
 
-	a := repo.Get(x)
-	fmt.Println(a)
+	// Retrive
+	article1 := repo.Get(id1)
+	fmt.Println(article1)
+
+	// Update
+	article1.Description = "New Description"
+	count := repo.Update(article1)
+	fmt.Printf("Count: %d\n", count)
+
+	article2 := repo.Get(id1)
+	fmt.Println(article2)
 }
