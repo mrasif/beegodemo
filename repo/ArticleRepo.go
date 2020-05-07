@@ -25,7 +25,7 @@ func Get(id int64) models.Article {
 }
 
 // GetAll : It will returns all Artcles
-func GetAll() *[]models.Article {
+func All() *[]models.Article {
 	qs := db.GetDb().QueryTable("articles")
 	articles := new([]models.Article)
 	qs.All(articles)
