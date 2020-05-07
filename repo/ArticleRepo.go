@@ -7,8 +7,7 @@ import (
 	"time"
 )
 
-func Insert(article models.Article) int64 {
-	fmt.Println(article)
+func Save(article models.Article) int64 {
 	article.CreatedAt = time.Now().UnixNano() / int64(time.Millisecond)
 	article.UpdatedAt = time.Now().UnixNano() / int64(time.Millisecond)
 	id, _ := db.GetDb().Insert(&article)
@@ -16,4 +15,12 @@ func Insert(article models.Article) int64 {
 	fmt.Println("Article inserted")
 	return id
 
+}
+
+func Get(id int64) models.Article {
+	article := models.Article{
+		Id: id,
+	}
+	db.GetDb().Read(&article)
+	return article
 }

@@ -16,8 +16,9 @@ func main() {
 		Description: "Description 1",
 	}
 
-	x := repo.Insert(article)
-	fmt.Println(x)
-	repo.Insert(article)
+	x := repo.Save(article)
+	fmt.Printf("Id: %d\n", x)
 
+	a := repo.Get(x)
+	fmt.Println(a)
 }
