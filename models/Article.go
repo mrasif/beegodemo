@@ -15,12 +15,8 @@ type Article struct {
 }
 
 // TableName : It will returns table name
-func (u *Article) TableName() string {
+func (a *Article) TableName() string {
 	return "articles"
-}
-
-func (u *Article) string() string {
-	return "aa"
 }
 
 func init() {
