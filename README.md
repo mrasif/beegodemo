@@ -31,7 +31,7 @@ Now your api is running on 8080 port.
 
 **5. Routes:**
 
-| Requesst Method | Endpoint | Path Parameters | Body (application/json) | Query Parameters |
+| Request Method | Endpoint | Path Parameters | Body (application/json) | Query Parameters |
 |-|-|-|-|-|
 | GET   | http://localhost:8080 | | | |
 | GET   | http://localhost:8080/articles | | | |
