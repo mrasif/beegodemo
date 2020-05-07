@@ -21,7 +21,7 @@ func Save(article models.Article) int64 {
 // Get : It will Retrive Article
 func Get(id int64) models.Article {
 	article := models.Article{
-		Id: id,
+		ID: id,
 	}
 	db.GetDb().Read(&article)
 	return article
@@ -31,5 +31,14 @@ func Get(id int64) models.Article {
 func Update(article models.Article) int64 {
 	article.UpdatedAt = time.Now().UnixNano() / int64(time.Millisecond)
 	count, _ := db.GetDb().Update(&article)
+	return count
+}
+
+// Delete : It will delete article
+func Delete(id int64) int64 {
+	article := models.Article{
+		ID: id,
+	}
+	count, _ := db.GetDb().Delete(&article)
 	return count
 }

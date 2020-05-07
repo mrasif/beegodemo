@@ -33,4 +33,8 @@ func main() {
 
 	article2 := repo.Get(id1)
 	fmt.Println(article2)
+
+	// Delete
+	count = repo.Delete(id1)
+	fmt.Printf("Count: %d\n", count)
 }

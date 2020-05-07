@@ -27,7 +27,7 @@ func GetDb() orm.Ormer {
 			fmt.Println("Environment variable DB_PASSWORD is null.")
 			return nil;
 		}
-		fmt.Println(db_name)
+		
 		orm.RegisterDriver("postgres", orm.DRPostgres)
 		orm.RegisterDataBase("default", "postgres", "postgres://"+dbUser+":"+dbPassword+"@localhost:5432/"+dbName+"?sslmode=disable")
 
