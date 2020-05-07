@@ -38,3 +38,15 @@ Now your api is running on 8080 port.
 | POST  | http://localhost:8080/articles | | { "title": "your title", "description": "your description" } | |
 | GET   | http://localhost:8080/articles/:id | id | | |
 | DELETE   | http://localhost:8080/articles/:id | id | | |
+
+## Deploying to Heroku
+
+```sh
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+
+or
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
