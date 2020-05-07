@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// Save : It will save artice
 func Save(article models.Article) int64 {
 	article.CreatedAt = time.Now().UnixNano() / int64(time.Millisecond)
 	article.UpdatedAt = time.Now().UnixNano() / int64(time.Millisecond)
@@ -17,6 +18,7 @@ func Save(article models.Article) int64 {
 
 }
 
+// Get : It will Retrive Article
 func Get(id int64) models.Article {
 	article := models.Article{
 		Id: id,
@@ -25,6 +27,7 @@ func Get(id int64) models.Article {
 	return article
 }
 
+// Update : It will update article
 func Update(article models.Article) int64 {
 	article.UpdatedAt = time.Now().UnixNano() / int64(time.Millisecond)
 	count, _ := db.GetDb().Update(&article)
