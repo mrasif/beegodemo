@@ -1,1 +1,1 @@
-web: ./beegodemo
+web: go-getting-started
