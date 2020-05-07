@@ -1,1 +1,1 @@
-web: chmod +x beegodemo && ./beegodemo
+web: webapphr
