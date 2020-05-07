@@ -44,19 +44,12 @@ Now your api is running on 8080 port.
 
 ## Deploying to Heroku
 
-<div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; -webkit-column-rule: 1px dotted #e0e0e0; -moz-column-rule: 1px dotted #e0e0e0; column-rule: 1px dotted #e0e0e0;">
-<div style="display: inline-block;">
-
 ```sh
 heroku create
 git push heroku master
 heroku open
 ```
 
-</div>
-<div style="display: inline-block;">
+Or
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-</div>
-</div>
