@@ -9,13 +9,20 @@ Beego Demo GoLang
 go mod tidy
 ```
 
-**2. Build Project:**
+**2. Environment Settings:**
+
+Copy `.env.sample` to `.env` and write environment details. Then export using this command.
+```
+export $(cat .env | xargs)
+```
+
+**3. Build Project:**
 
 ```
 go build
 ```
 
-**3. Run Application:**
+**4. Run Application:**
 
 ```
 ./beegodemo
