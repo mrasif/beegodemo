@@ -2,7 +2,7 @@ package server
 
 import (
 	"beegodemo/controllers"
-
+	"os"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,5 +14,5 @@ func Run() {
 	router.POST("/articles", controllers.Create)
 	router.GET("/articles/:id", controllers.Show)
 	router.DELETE("/articles/:id", controllers.Destroy)
-	router.Run()
+	router.Run(":"+os.Getenv("PORT"))
 }
