@@ -37,6 +37,7 @@ Now your api is running on 8080 port.
 | Request Method | Endpoint                             | Path Parameters | Body (application/json)                                        | Query Parameters |
 | -------------- | ------------------------------------ | --------------- | -------------------------------------------------------------- | ---------------- |
 | `GET`          | `http://localhost:8080`              |                 |                                                                |                  |
+| `GET`          | `http://localhost:8080/docs`              |                 |                                                                |                  |
 | `GET`          | `http://localhost:8080/articles`     |                 |                                                                |                  |
 | `POST`         | `http://localhost:8080/articles`     |                 | `{ "title": "your title", "description": "your description" }` |                  |
 | `GET`          | `http://localhost:8080/articles/:id` | `id`            |                                                                |                  |
