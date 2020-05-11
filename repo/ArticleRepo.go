@@ -4,11 +4,16 @@ import (
 	"beegodemo/db"
 	"beegodemo/models"
 	"fmt"
+	"log"
 )
 
 // Save : It will save artice
 func Save(article models.Article) int64 {
-	id, _ := db.GetDb().Insert(&article)
+	id, error := db.GetDb().Insert(&article)
+
+	if error != nil {
+		log.Fatal(error)
+	}
 
 	fmt.Println("Article inserted")
 	return id
@@ -34,7 +39,10 @@ func All() *[]models.Article {
 
 // Update : It will update article
 func Update(article models.Article) int64 {
-	count, _ := db.GetDb().Update(&article)
+	count, error := db.GetDb().Update(&article)
+	if error != nil {
+		log.Fatal(error)
+	}
 	return count
 }
 
@@ -43,6 +51,9 @@ func Delete(id int64) int64 {
 	article := models.Article{
 		ID: id,
 	}
-	count, _ := db.GetDb().Delete(&article)
+	count, error := db.GetDb().Delete(&article)
+	if error != nil {
+		log.Fatal(error)
+	}
 	return count
 }
