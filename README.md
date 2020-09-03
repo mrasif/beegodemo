@@ -12,10 +12,10 @@ go mod tidy
 
 **2. Environment Settings:**
 
-Copy `.env.sample` to `.env` and write environment details. Then export using this command.
+Copy `docker/.env.sample` to `docker/.env` and write environment details. Then export using this command.
 
 ```sh
-export $(cat .env | xargs)
+export $(cat docker/.env | xargs)
 ```
 
 **3. Build Project:**
@@ -30,18 +30,24 @@ go build
 ./beegodemo
 ```
 
-Now your api is running on 8080 port.
+Or run with docker:
+```sh
+cd docker
+docker-compose up --build
+```
+
+Now your api is running on 3000 port (if you use docker then port is 3001).
 
 **5. Routes:**
 
 | Request Method | Endpoint                             | Path Parameters | Body (application/json)                                        | Query Parameters |
 | -------------- | ------------------------------------ | --------------- | -------------------------------------------------------------- | ---------------- |
-| `GET`          | `http://localhost:8080`              |                 |                                                                |                  |
-| `GET`          | `http://localhost:8080/docs`              |                 |                                                                |                  |
-| `GET`          | `http://localhost:8080/articles`     |                 |                                                                |                  |
-| `POST`         | `http://localhost:8080/articles`     |                 | `{ "title": "your title", "description": "your description" }` |                  |
-| `GET`          | `http://localhost:8080/articles/:id` | `id`            |                                                                |                  |
-| `DELETE`       | `http://localhost:8080/articles/:id` | `id`            |                                                                |                  |
+| `GET`          | `http://localhost:3000`              |                 |                                                                |                  |
+| `GET`          | `http://localhost:3000/docs`              |                 |                                                                |                  |
+| `GET`          | `http://localhost:3000/articles`     |                 |                                                                |                  |
+| `POST`         | `http://localhost:3000/articles`     |                 | `{ "title": "your title", "description": "your description" }` |                  |
+| `GET`          | `http://localhost:3000/articles/:id` | `id`            |                                                                |                  |
+| `DELETE`       | `http://localhost:3000/articles/:id` | `id`            |                                                                |                  |
 
 ## Deploying to Heroku
 

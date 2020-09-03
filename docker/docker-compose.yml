@@ -1,6 +1,6 @@
 version: "3"
 services:
-  web:
+  web-beegodemo:
     networks:
       - beegodemo
     build: .
@@ -13,9 +13,9 @@ services:
     volumes:
       - "../:/go/src/app"
     depends_on:
-      - db
+      - db-beegodemo
 
-  db:
+  db-beegodemo:
     networks:
       - beegodemo
     image: postgres:12
@@ -24,10 +24,10 @@ services:
       - "5434:5432"
     env_file: .env
     volumes:
-      - postgres-beegodemo
+        - db-beegodemo-data:/var/lib/postgresql/data/
 
 volumes:
-  postgres-beegodemo:
+  db-beegodemo-data:
 
 networks:
   beegodemo:
