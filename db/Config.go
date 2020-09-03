@@ -12,10 +12,11 @@ var db orm.Ormer
 // GetDb : It will returns orm object
 func GetDb() orm.Ormer {
 	if db == nil {
-		dbHost := os.Getenv("DB_HOST")
-		dbName := os.Getenv("DB_NAME")
-		dbUser := os.Getenv("DB_USERNAME")
-		dbPassword := os.Getenv("DB_PASSWORD")
+		dbHost := os.Getenv("POSTGRES_HOST")
+		dbName := os.Getenv("POSTGRES_DB")
+		dbUser := os.Getenv("POSTGRES_USER")
+		dbPassword := os.Getenv("POSTGRES_PASSWORD")
+		dbPort := os.Getenv("POSTGRES_PORT")
 
 		if dbHost == "" {
 			fmt.Println("Environment variable DB_HOST is null.")
@@ -34,8 +35,12 @@ func GetDb() orm.Ormer {
 			return nil
 		}
 
+		if dbPort == "" {
+			dbPort = "5432"
+		}
+
 		orm.RegisterDriver("postgres", orm.DRPostgres)
-		orm.RegisterDataBase("default", "postgres", "postgres://"+dbUser+":"+dbPassword+"@"+dbHost+":5432/"+dbName+"?sslmode=disable")
+		orm.RegisterDataBase("default", "postgres", "postgres://"+dbUser+":"+dbPassword+"@"+dbHost+":"+dbPort+"/"+dbName+"?sslmode=disable")
 
 		// This is for auto generating tables
 		orm.RunSyncdb("default", false, true)
